@@ -115,9 +115,10 @@ class CharFF(nn.Module):
 
         chars_embedding = self.dropout(flattened)
         chars_embedding = self.relu(self.dense1(chars_embedding))
-
         chars_embedding = self.dropout(chars_embedding)
-        chars_embedding = self.relu(self.dense2(chars_embedding))
+        chars_embedding = self.dense2(chars_embedding)
+        chars_embedding = self.dropout(chars_embedding)
+
         return chars_embedding
 
 
